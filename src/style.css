@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url(/public/fonts/Inter/Inter-Bold.ttf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url(/public/fonts/Inter/Inter-Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url(/public/fonts/Inter/Inter-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url(/public/fonts/Inter/Inter-SemiBold.ttf);
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Uniform';
+  src: url(/public/fonts/uniform/Uniform\ Extra\ Condensed\ Bold.ttf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Uniform';
+  src: url(/public/fonts/uniform/Uniform\ Extra\ Condensed\ Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Ubuntu';
+  src: url(/public/fonts/Ubuntu/Ubuntu-Bold.ttf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Ubuntu';
+  src: url(/public/fonts/Ubuntu/Ubuntu-Medium.ttf);
+  font-weight: 500;
+}
+
+:root {
+  --f_Inter: 'Inter';
+  --f_Uniform: 'Uniform';
+  --f_Ubuntu: 'Ubuntu';
+  --link: #939393;
+  --link-2: #333333;
+  --link-hover: #27CA7D;
+  --title: #27CA7D;
+  --btn: linear-gradient(180deg, #4DE48A 0%, #1FC57A 100%);
+  --white: #fff;
+  --black: #000;
+  --border: rgba(0, 0, 0, 0.2);
+  --border-2: #E8E8E8;
+  --icon-color: #4F6370;
+  --text: #2B4253;
+  --star: #FDC040;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+.container {
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.btn {
+  font-family: var(--f_Inter);
+  font-size: 13px;
+  line-height: 15px;
+  font-weight: 500;
+  padding: 14px 19px;
+  border-radius: 3px;
+  background: var(--link-hover);
+  color: var(--white);
+  transition: .5s;
+}
+
+.btn:hover {
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.326);
+}
+
+.title {
+  margin-bottom: 30px;
+  font-size: 40px;
+  font-weight: 500;
+  font-family: var(--f_Ubuntu);
+}
+
+.title-span {
+  color: var(--title);
+}
+
+body {
+  font-family: var(--f_Inter);
+}
