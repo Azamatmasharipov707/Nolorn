@@ -110,10 +110,14 @@ input {
   font-size: 40px;
   font-weight: 500;
   font-family: var(--f_Ubuntu);
+  color: var(--text);
+  letter-spacing: 0.025em;
 }
 
 .title-span {
   color: var(--title);
+  letter-spacing: 0.025em;
+  margin-left: 5px;
 }
 
 body {

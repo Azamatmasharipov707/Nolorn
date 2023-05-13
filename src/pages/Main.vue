@@ -6,6 +6,7 @@
         <Categories />
         <Fruits />
         <Product />
+        <Best />
     </div>
 </template>
 
@@ -16,6 +17,7 @@ import Header from '../components/Header.vue';
 import Categories from '../components/Categories.vue';
 import Fruits from '../components/Fruits.vue';
 import Product from '../components/Product.vue';
+import Best from '../components/Best.vue';
 
 </script>
 
