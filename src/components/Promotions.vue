@@ -1,26 +1,26 @@
 <template>
     <section class="promotions">
-        <div class="container">
+        <div class="container" v-if="sales">
             <h2 class="title">Hot<span class="title-span"> Promotions</span></h2>
             <Carousel :items-to-show="1.5" class="promotions__slider">
-                <Slide class="promotions__slide">
+                <Slide v-for="item in sales" class="promotions__slide">
                     <div class="promotions__content">
                         <div class="promotions__timer">
                             <div class="promotions__time">
                                 <p>Days</p>
-                                <span>{{ days }}</span>
+                                <span>{{ item.days }}</span>
                             </div>
                             <div class="promotions__time">
                                 <p>Hours</p>
-                                <span>{{ hours % 24 }}</span>
+                                <span>{{ item.hours % 24 }}</span>
                             </div>
                             <div class="promotions__time">
                                 <p>Mins</p>
-                                <span>{{ minutes % 60 }}</span>
+                                <span>{{ item.minutes % 60 }}</span>
                             </div>
                             <div class="promotions__time">
                                 <p>Sec </p>
-                                <span>{{ seconds % 60 }}</span>
+                                <span>{{ item.seconds % 60 }}</span>
                             </div>
                         </div>
                         <div class="promotions__desc">
@@ -62,24 +62,34 @@ import { ref } from 'vue';
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
-const days = ref(0)
-const hours = ref(0)
-const minutes = ref(0)
-const seconds = ref(0)
+
+
+
+const sales = ref([])
+
+const launchDate = new Date('1 june 2023')
+const launchDate2 = new Date('1 jule 2023')
+
+function timerCount(elem, index) {
+    const currDate = new Date();
+    const launchTime = elem - currDate;
+    let seconds = parseInt(launchTime / 1000)
+    let minutes = parseInt(seconds / 60)
+    let hours = parseInt(minutes / 60)
+    let days = parseInt(hours / 24)
+    sales.value[index] = {
+        seconds,
+        minutes,
+        hours,
+        days
+    }
+    return sales.value[index]
+}
+
 
 setInterval(() => {
-    const launchDate = new Date('1 june 2023')
-    function timerCount(elem) {
-        const currDate = new Date();
-        const launchTime = elem - currDate;
-    
-        seconds.value = parseInt(launchTime / 1000);
-        minutes.value = parseInt(seconds.value / 60);
-        hours.value = parseInt(minutes.value / 60);
-        days.value = parseInt(hours.value / 24);
-        // console.log(launchTime
-    }
-    timerCount(launchDate)
+    timerCount(launchDate, 0)
+    timerCount(launchDate2, 1)
 }, 1000)
 
 
@@ -95,22 +105,25 @@ setInterval(() => {
                     padding: 104px 60px;
                     border-radius: 10px;
                     text-align: left;
+
                     .promotions__timer {
                         display: flex;
                         justify-content: space-between;
                         margin-bottom: 10px;
-                       
+
                         .promotions__time {
                             background: var(--white);
                             width: 105px;
                             padding: 20px 0;
                             border-radius: 10px;
                             text-align: center;
+
                             P {
                                 font-size: 16px;
                                 color: #2FD080;
                                 font-weight: 500;
                             }
+
                             span {
                                 font-size: 40px;
                                 color: var(--text);
@@ -118,6 +131,7 @@ setInterval(() => {
                             }
                         }
                     }
+
                     .promotions__desc {
                         background: var(--white);
                         padding: 20px;
